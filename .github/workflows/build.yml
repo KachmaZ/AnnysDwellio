@@ -6,7 +6,7 @@ on:
     pull_request:
       branches: ["v1"]
 jobs:
-    build_job:
+    BuildV1:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
@@ -14,11 +14,13 @@ jobs:
             ref: v1
 
         - name: Building projects
-          run: npm run build
+          uses: actions/setup-node@v3
+          with:
+            node-version: 20
+            cache: 'npm'
+        - run: npm run build
 
-        - name: Sending dist 
-          run: |
-              git add -f dist,
-              git commit -m 'New deploy',
-              git subtree push --prefix=dist origin gh-pages-v1,
+        - run: git add -f dist,
+        - run: git commit -m 'New deploy',
+        - run: git subtree push --prefix=dist origin gh-pages-v1,
           
