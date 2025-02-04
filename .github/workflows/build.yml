@@ -1,0 +1,25 @@
+name: Build V1 (separated)
+on: 
+    workflow_dispatch:
+    push: 
+      branches: ["v1"]
+    pull_request:
+      branches: ["v1"]
+jobs:
+    build_job:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Checkout to v1 branch
+          run: git checkout v1
+
+        - name: Building projects
+          run: npm run build
+
+        - name: Sending dist 
+          run: |
+              git add -f dist,
+              git commit -m 'New deploy',
+              git subtree push --prefix=dist origin gh-pages-v1,
+          
