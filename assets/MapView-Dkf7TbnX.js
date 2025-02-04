@@ -1,0 +1,1 @@
+import{_ as o}from"./ApartsMap.vue_vue_type_script_setup_true_lang-D1sw7OxZ.js";import{d as e,o as a,a as r}from"./index-DGD_dy5n.js";import"./apartsStore-DUyVVKs3.js";import"./filtersStore-CMVgCLHX.js";const i=e({__name:"MapView",setup(t){return(p,_)=>(a(),r(o))}});export{i as default};
