@@ -30,6 +30,11 @@ const router = createRouter({
 
       component: () => import('@/views/InProgress.vue'),
     },
+    {
+      path: '/hybrid',
+      name: 'hybridPage',
+      component: () => import('@/views/HybridView.vue'),
+    },
   ],
 })
 
